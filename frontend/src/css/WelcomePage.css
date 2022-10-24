@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: rgba(0, 0, 0, 0.972);
+}
+
+div#welcomePage__container{
+    max-width: 100%;
+    height: calc(100vh);
+    max-height: 100%;
+}
+
+/*Header Content Styling*/
+div#welcomePage__header {
+    min-height: 80px;
+    max-width: 100%;
+    padding-top: 20px;
+}
+
+div#welcomePage_header-col1 {
+    min-height: 80px;
+    width: 80%;
+    float: left;
+    justify-content: center;
+    align-items: center;
+}
+
+h1#appName{
+    margin-left: 5%;
+    color: white;
+    font-family: 'Montserrat';
+        font-weight: lighter;
+}
+div#welcomePage_header-col2 {
+    min-height: 80px;
+    width: 10%;
+    float: right;
+}
+
+button#loginBtn, button#signUpBtn{
+    height: 50px;
+    width: 120px;
+    color: white;
+    background-color: inherit;
+    border: 1px solid;
+    border-color: red;
+    border-radius: 40px;
+}
+
+button#loginBtn{
+    position: absolute;
+    right: 20%;
+}
+
+div#welcomePage_header-col3 {
+    min-height: 80px;
+    width: 10%;
+    float: right;
+    position: relative;
+}
+
+div#welcomePage__main {
+    height: calc(100vh - 80px);
+    max-width: inherit;
+}
+
+div#welcomePage__main-col1 {
+    height: inherit;
+    width: 60%;
+    float:left;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+}
+/*main column 1 content*/
+
+div#welcomePage__main-col1-missionStatement{
+    height: 40vh;
+    width:100%;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    position: relative;
+    
+}
+h2#missionStatement{
+    position: absolute;
+    right:0;
+    bottom: 0;
+    font-size: 4rem;
+    /* text-align: right; */
+    font-family: 'Montserrat';
+    color: white;
+}
+div#welcomePage__main-col1-description{
+    height: 50vh;
+    width:65%;
+    float:right;
+    /* background-color: rgba(255, 255, 255, 0.8) */
+}
+p#description{
+    float:right;
+    color:white;
+    padding-top: 20px;
+    font-family: 'Montserrat';
+    font-size: 1.2rem;
+    line-height: 30px;
+}
+
+
+div#welcomePage__main-col2{
+    height: inherit;
+    width: 40%;
+    float:right;
+}
+
+.welcomePage__logoIcon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    right: 0px;
+    position: absolute;
+    width: 50%;
+}
+
+.welcomePage__logoIcon{
+    position: relative;
+    top: -80px;
+    transform: skewY(-20deg);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg)
+    }
+}
+.welcomePage__logoIcon .cube{
+    position: relative;
+    z-index: 2;
+}
+
+.welcomePage__logoIcon .cube:nth-child(2){
+    z-index: 1;
+    translate: -60px -60px;
+}
+
+.welcomePage__logoIcon .cube:nth-child(3){
+    z-index: 3;
+    translate: 60px 60px;
+}
+
+.welcomePage__logoIcon .cube  div{
+    position: absolute; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    translate: calc(-70px * var(--x)) calc(-70px * var(--y));
+}
+.welcomePage__logoIcon .cube div span{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: #dcdcdc;
+    z-index: calc(1 * var(--i));
+    transition: 1.5s;
+}
+
+.welcomePage__logoIcon .cube span:hover{
+    transition: 0s;
+    background: #dcdcdc;
+    filter: drop-shadow(0 0 40px #dcdcdc);
+}
+.welcomePage__logoIcon .cube div span::before{
+    content: '';
+    position: absolute;
+    left: -50px;
+    width: 50px;
+    height: 100%;
+    background: #fff;
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 1.5s;
+}
+.welcomePage__logoIcon .cube  div span:hover::before{
+    background: #e02dda;
+    transition: 0s;
+}
+
+.welcomePage__logoIcon .cube  div span::after{
+    content: '';
+    position: absolute;
+    top: -50px;
+    width:100%;
+    height: 50px;
+    background: #f2f2f2;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 0.5s;
+}
+
+.welcomePage__logoIcon .cube div span:hover::after{
+    background: #f54cef;
+    transition: 0s;
+}
