@@ -1,5 +1,7 @@
 const User = require("../../models/user");
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
 const postRegister = async (req,res)=>{
     try{
         //deconstructing the response from the front end from the register form
@@ -21,15 +23,25 @@ const postRegister = async (req,res)=>{
             password: encryptedPassword
         })
 
-        //TODO creating the JWT for user login
-        const token = 'JWTTOKEN';
+        //create token
+        const token = jwt.sign(
+            {
+                userId: user._id,
+                email 
+            },
+            process.env.TOKEN_KEY,
+            {
+                expiresIn: '24h'
+            }
+        );
+        
         res.status(201).json({
             userDetails:{
                 email: user.email,
                 token: token,
-                username: user.username
-            }
-        })
+                username: user.username,
+            },
+        });
 
     } catch(err) {
         return res.status(500).send('Error occurred. Please try again');

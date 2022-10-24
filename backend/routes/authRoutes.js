@@ -5,6 +5,7 @@ const Joi = require("joi");
 const { joiPasswordExtendCore } = require('joi-password');
 const joiPassword = Joi.extend(joiPasswordExtendCore);
 const validator = require("express-joi-validation").createValidator({});
+const auth = require("../middleware/auth") //TODO remove me after testing
 
 const registerSchema = Joi.object({
     username: Joi.string().min(6).max(12).required(),
@@ -35,6 +36,11 @@ router.post(
     validator.body(loginSchema), 
     authControllers.controllers.postLogin
 );
+
+//TODO test routes to verify middlewares
+router.get("/test", auth,(req,res)=>{
+    res.send('request is passed')
+})
 
 //exporting our routes
 module.exports = router;
