@@ -2,8 +2,9 @@ const express = require ("express"); //express allows us to create the server
 const http = require("http");
 const cors = require("cors"); //our frontend and backend are in 2 different ports, so we need cors to allow communication between the two
 const mongoose = require("mongoose"); //we will create our db with mongoose
-
 require("dotenv").config();
+
+const authRoutes = require("./routes/authRoutes");
 
 const PORT = process.env.PORT || process.env.API_PORT;
 
@@ -12,6 +13,9 @@ const app = express(); //creating an instance of an express server
 //Middleware
 app.use(express.json());
 app.use(cors());
+
+//adding routes
+app.use("/api/auth", authRoutes);
 
 const server = http.createServer(app);
 
