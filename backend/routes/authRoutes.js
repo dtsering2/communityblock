@@ -18,7 +18,7 @@ const registerSchema = Joi.object({
         .min(8)
         .noWhiteSpaces()
         .required(),
-    confirm_password: Joi.string().required().valid(Joi.ref('password')),
+    confirmPassword: Joi.string().required().valid(Joi.ref('password')),
     email: Joi.string().email().required()
 });
 
@@ -38,7 +38,7 @@ router.post(
     authControllers.controllers.postLogin
 );
 
-//TODO test routes to verify middlewares
+//TODO test routes to verify middlewares REMOVEME
 router.get("/test", auth,(req,res)=>{
     res.send('request is passed')
 })

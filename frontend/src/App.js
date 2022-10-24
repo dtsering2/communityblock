@@ -6,6 +6,7 @@ import WelcomePage from './WelcomePage';
 import SignUpPage from './authPages/SignUpPage/SignUpPage';
 import LoginPage from './authPages/LoginPage/LoginPage';
 import Dashboard from './Dashboard/Dashboard';
+import AlertNotification from './Shared/components/AlertNotification';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path = "/login" element = { <LoginPage navigateToWelcome = {navigateToWelcome} navigateToSignUp = {navigateToSignUp}/> }/>
         <Route path = "/dashboard" element = { <Dashboard /> } />
       </Routes> 
+      <AlertNotification />
     </>
   );
 }

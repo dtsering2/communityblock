@@ -4,9 +4,12 @@ import AuthBox from '../../Shared/components/AuthBox';
 import SignUpPageFooter from './SignUpPageFooter';
 import SignUpPageInputs from './SignUpPageInputs';
 import { validateSignUpForm } from '../../Shared/utilities/signUpValidator';
+import {connect} from "react-redux";
+import { getActions } from "../../store/actions/authActions"
+import { useNavigate } from 'react-router-dom';
 
-const SignUpPage = ({navigateToWelcome, navigateToLogin}) => {
-  
+const SignUpPage = ({navigateToWelcome, navigateToLogin, register}) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +21,14 @@ const SignUpPage = ({navigateToWelcome, navigateToLogin}) => {
   }, [email, password, username, confirmPassword, setIsFormValid])
 
   const handleSignUp = () => {
-    console.log({email, username, password, confirmPassword})
+    const userDetails = {
+      email,
+      password,
+      confirmPassword,
+      username
+    };
+
+    register(userDetails, navigate)
   }
 
   return (
@@ -44,4 +54,11 @@ const SignUpPage = ({navigateToWelcome, navigateToLogin}) => {
   )
 }
 
-export default SignUpPage
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+
+  }
+}
+
+export default connect(null, mapActionsToProps)(SignUpPage);

@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const postRegister = async (req,res)=>{
     try{
         //deconstructing the response from the front end from the register form
-        const { username, email, password, confirm_password } = req.body;
+        const { username, email, password, confirmPassword } = req.body;
 
         //lets check if user exists first
         const userExists = await User.exists({email: email.toLowerCase(), username: username.toLowerCase()});
@@ -20,7 +20,7 @@ const postRegister = async (req,res)=>{
         const user = await User.create({
             username: username.toLowerCase(),
             email: email.toLowerCase(),
-            password: encryptedPassword
+            password: encryptedPassword,
         })
 
         //create token
@@ -42,7 +42,6 @@ const postRegister = async (req,res)=>{
                 username: user.username,
             },
         });
-
     } catch(err) {
         return res.status(500).send('Error occurred. Please try again');
     }

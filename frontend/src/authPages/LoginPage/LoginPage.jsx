@@ -3,19 +3,29 @@ import AuthBox from '../../Shared/components/AuthBox';
 import LoginPageFooter from './LoginPageFooter';
 import LoginPageHeader from './LoginPageHeader';
 import LoginPageInputs from './LoginPageInputs';
-import {validateLoginForm} from '../../Shared/utilities/loginValidator'
+import {validateLoginForm} from '../../Shared/utilities/loginValidator';
+import {connect} from "react-redux";
+import { getActions } from "../../store/actions/authActions"
+import { useNavigate } from 'react-router-dom';
 
-const LoginPage = ({navigateToWelcome, navigateToSignUp}) => {
+
+const LoginPage = ({navigateToWelcome, navigateToSignUp, login}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isFormValid, setIsFormValid] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(()=> {
     setIsFormValid(validateLoginForm({email, password}))
   }, [email, password, setIsFormValid])
 
   const handleLogin = () =>{
-    console.log({email, password})
+    const userDetails = {
+      email,
+      password
+    }
+    login(userDetails, navigate)
   }
 
   return (
@@ -35,6 +45,13 @@ const LoginPage = ({navigateToWelcome, navigateToSignUp}) => {
       />
     </AuthBox>
   )
+};
+
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+
+  }
 }
 
-export default LoginPage
+export default connect(null, mapActionsToProps)(LoginPage)

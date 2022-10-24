@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import InputWithLabel from '../../Shared/components/InputWithLabel'
 
 const LoginPageInputs = ({email, setEmail, password, setPassword}) => {
