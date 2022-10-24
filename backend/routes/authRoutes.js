@@ -8,13 +8,14 @@ const validator = require("express-joi-validation").createValidator({});
 const auth = require("../middleware/auth") //TODO remove me after testing
 
 const registerSchema = Joi.object({
-    username: Joi.string().min(6).max(12).required(),
+    username: Joi.string().min(6).max(20).required(),
     password:joiPassword
         .string()
         .minOfSpecialCharacters(1)
         .minOfLowercase(1)
         .minOfUppercase(1)
-        .minOfNumeric(3)
+        .minOfNumeric(1)
+        .min(8)
         .noWhiteSpaces()
         .required(),
     confirm_password: Joi.string().required().valid(Joi.ref('password')),

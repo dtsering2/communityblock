@@ -15,7 +15,7 @@ const Label = styled('p')({
     textTransform: 'uppercase',
     fontWeight: "100",
     fontSize: "16px",
-    padding: "20px 0 20px 0"
+    padding: "0 0"
 })
 
 const Input = styled('input')({

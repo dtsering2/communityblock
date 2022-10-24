@@ -27,7 +27,7 @@ const LoginPageFooter = ({ handleLogin, isFormValid, navigateToSignUp, navigateT
             </Tooltip>
                 <PrimaryButton 
                     label = "Create an account"
-                    additionalStyles={{marginTop: '30px'}}
+                    additionalStyles={{marginTop: '10px'}}
                     onClick = {navigateToSignUp}
                 />  
         </>
