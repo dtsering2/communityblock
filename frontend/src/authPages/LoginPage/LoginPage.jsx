@@ -50,7 +50,6 @@ const LoginPage = ({navigateToWelcome, navigateToSignUp, login}) => {
 const mapActionsToProps = (dispatch) => {
   return {
     ...getActions(dispatch),
-
   }
 }
 
