@@ -13,7 +13,7 @@ const MainContainer = styled('div')({
 const SideBar = () => {
     return (
         <MainContainer>
-            <MainPageButton/>
+            <MainPageButton />
         </MainContainer>
     )
 }
