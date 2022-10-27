@@ -15,7 +15,8 @@ div#welcomePage__container{
 
 /*Header Content Styling*/
 div#welcomePage__header {
-    min-height: 80px;
+    height: 5%;
+    /* min-height: 80px; */
     max-width: 100%;
     padding-top: 20px;
 }
@@ -63,45 +64,62 @@ div#welcomePage_header-col3 {
 }
 
 div#welcomePage__main {
-    height: calc(100vh - 80px);
+    height: 95%;
+    /* height: calc(100vh - 80px); */
     max-width: inherit;
 }
 
 div#welcomePage__main-col1 {
-    height: inherit;
+    height: 100%;
     width: 60%;
     float:left;
-    position: relative;
-    display: grid;
-    grid-template-columns: auto;
-    grid-gap: 10px;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
 }
 /*main column 1 content*/
 
+div#welcomePage_main-col1-textWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 89%;
+}
+
+/* div#welcomePage_main-col1-textContainer {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+} */
+
 div#welcomePage__main-col1-missionStatement{
-    height: 40vh;
+    /* height: 100%; */
     width:100%;
     /* background-color: rgba(255, 255, 255, 0.8); */
-    position: relative;
+    /* position: relative; */
     
 }
 h2#missionStatement{
-    position: absolute;
-    right:0;
-    bottom: 0;
-    font-size: 4rem;
-    /* text-align: right; */
-    font-family: 'Montserrat';
+    /* position: absolute; */
+    /* right:0; */
+    /* bottom: 0; */
+    font-size: 3rem;
+    text-align: right;
+    /* font-family: 'Montserrat'; */
     color: white;
 }
 div#welcomePage__main-col1-description{
-    height: 50vh;
+    /* height: 50vh;
     width:65%;
-    float:right;
+    float:right; */
     /* background-color: rgba(255, 255, 255, 0.8) */
+    width: 65%;
+    padding-left: 18%;
+    margin-top: 3%;
 }
 p#description{
-    float:right;
+    /* float:right; */
     color:white;
     padding-top: 20px;
     font-family: 'Montserrat';
