@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography'
 import React, {useState, useEffect} from 'react'
 import {validateEmail} from "../../Shared/utilities/loginValidator"
 import PrimaryButton from '../../Shared/components/PrimaryButton'
+import {connect} from 'react-redux'
+import {getActions} from '../../store/actions/friendsActions'
 
 const AddFriendDialog = ({
     isDialogOpen, 
@@ -20,7 +22,9 @@ const AddFriendDialog = ({
     const [isFormValid, setIsFormValid] = useState(false)
 
     const handleSendInvitation = () => {
-        //TODO add logic to send the request to the server
+        sendFriendInvitation({
+            targetEmailAddress: email
+        })
     }
 
     const handleCloseDialog = () => {
@@ -72,4 +76,10 @@ const AddFriendDialog = ({
     )
 }
 
-export default AddFriendDialog
+const mapActionsToProps = (dispatch) => {
+    return {
+        ...getActions(dispatch)
+    }
+}
+
+export default connect(null, mapActionsToProps)(AddFriendDialog)

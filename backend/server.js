@@ -4,7 +4,9 @@ const cors = require("cors"); //our frontend and backend are in 2 different port
 const mongoose = require("mongoose"); //we will create our db with mongoose
 require("dotenv").config();
 
+const socketServer = require('./socketServer')
 const authRoutes = require("./routes/authRoutes");
+const friendInvitationRoutes = require('./routes/friendInvitationRoutes')
 
 const PORT = process.env.PORT || process.env.API_PORT;
 
@@ -16,9 +18,11 @@ app.use(cors());
 
 //adding routes
 app.use("/api/auth", authRoutes);
+app.use('/api/friend-invitation', friendInvitationRoutes )
 
 const server = http.createServer(app);
 
+socketServer.registerSocketServer(server);
 //connection to our db
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
