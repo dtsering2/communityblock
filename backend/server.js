@@ -18,7 +18,7 @@ app.use(cors());
 
 //adding routes
 app.use("/api/auth", authRoutes);
-app.use('/api/friend-invitation', friendInvitationRoutes )
+app.use('/api/friend-invitation', friendInvitationRoutes)
 
 const server = http.createServer(app);
 
