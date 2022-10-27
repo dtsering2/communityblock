@@ -30,18 +30,20 @@ const WelcomePage = ({ navigateToSignUp, navigateToLogin}) => {
                 </div>
                 <div id = "welcomePage__main">
                     <div id = "welcomePage__main-col1">
-                        <div id = "welcomePage__main-col1-missionStatement">
-                            <h2 id = "missionStatement">
-                                Connect with anyone, anywhere.
-                            </h2>
-                        </div>
-                        <div id = "welcomePage__main-col1-description">
-                            <p id = "description">
-                                CommunityBlock envisions a world where 
-                                you can belong to a gaming group,
-                                a work space, or a worldwide community. A place where you can build your own niche to
-                                connect you and your community.
-                            </p>
+                        <div id = "welcomePage_main-col1-textWrapper">
+                                <div id = "welcomePage__main-col1-missionStatement">
+                                    <h2 id = "missionStatement">
+                                        Connect with anyone, anywhere.
+                                    </h2>
+                                </div>
+                                <div id = "welcomePage__main-col1-description">
+                                    <p id = "description">
+                                        CommunityBlock envisions a world where 
+                                        you can belong to a gaming group,
+                                        a work space, or a worldwide community. A place where you can build your own niche to
+                                        connect you and your community.
+                                    </p>
+                                </div>
                         </div>
                     </div>
                     <div id = "welcomePage__main-col2">
