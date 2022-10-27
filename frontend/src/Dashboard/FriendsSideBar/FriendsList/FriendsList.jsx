@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from '@mui/system';
 import FriendsListItem from './FriendsListItem';
 import {connect} from 'react-redux'
-import { getActions } from '../../../store/actions/friendsActions';
+
 
 const MainContainer = styled('div')({
     flexGrow: 1,
